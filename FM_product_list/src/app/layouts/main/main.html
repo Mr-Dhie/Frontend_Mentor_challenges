@@ -1,0 +1,15 @@
+<main class="main-container">
+    <section class="section-container">
+        <div class="menu-container">
+            <app-desserts/>
+        </div>
+        <div class="cart-container">
+            <app-cart/>
+        </div>
+    </section>
+</main>
+
+@if(isModalOpen()){
+    <app-custom-modal/>
+}
+

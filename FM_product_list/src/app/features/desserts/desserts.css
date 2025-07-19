@@ -1,0 +1,19 @@
+h2{
+    font-size: 2rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-rose-900);
+    margin-bottom: 20px;
+}
+
+.desserts-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+@media (max-width: 780px){
+    .desserts-container{
+        justify-content: center;
+        align-items: center;
+    }
+}

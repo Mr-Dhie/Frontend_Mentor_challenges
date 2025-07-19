@@ -1,0 +1,16 @@
+<div class="cart-item-container">
+    @if(showThumbnail()){
+        <img class="item-thumbnail" [src]="item().image.thumbnail" [alt]="item().name + ' image'">
+    }
+    <div class="cart-item">
+        <span class="item-name">{{item().name}}</span>
+        <div>
+            <span class="item-qty">{{item().quantity}}x</span>
+            <span class="item-price">&#64; ${{item().price.toFixed(2)}}</span>
+            <span class="item-total" [class.right]="showThumbnail()">${{item().itemTotal.toFixed(2)}}</span>
+        </div>
+    </div>
+    @if(!showThumbnail()){
+        <img class="close-button" (click) = "removeItem(item().id)" src="/assets/images/icon-remove-item.svg" alt="close-button">
+    }
+</div>

@@ -1,0 +1,33 @@
+<h3>Your Cart({{cartCount()}})</h3>
+
+@if(cartCount() === 0){
+    <div class="empty-cart" >
+        <img src="/assets/images/illustration-empty-cart.svg" alt="empty cart" />
+        <span>Your added items will appear here</span>
+    </div>
+}@else{
+    <div class="cart-items">
+        <div class = "cart-item-list">
+            @for(item of cartItem(); track item.id){
+                <app-cart-list [item] = "item"/>
+            }
+        </div>
+   
+        <div class="cart-item-total-container">
+            <div class="total-amount">
+                <span class="label">Order Total</span>
+                <span class="price">${{total().toFixed(2)}}</span>
+            </div>
+            <p>
+                <img src="/assets/images/icon-carbon-neutral.svg" alt="carbon-icon" />
+                <span>This is <b>carbon-neutral</b> delivery</span>
+            </p>
+
+            <button (click)="openModal()">Confirm Order</button>
+        </div>
+        
+    </div>
+}
+
+
+
