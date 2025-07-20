@@ -1,19 +1,19 @@
 h2{
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: var(--font-weight-bold);
     color: var(--color-rose-900);
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
 }
 
 .desserts-container{
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
     gap: 20px;
 }
 
-@media (max-width: 780px){
+
+/* @media (min-width: 1000px){
     .desserts-container{
-        justify-content: center;
-        align-items: center;
+        grid-template-columns: repeat(3, 1fr);
     }
-}
+} */

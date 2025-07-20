@@ -51,11 +51,23 @@
 
 .cart-item-container 
 .close-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 1px solid var(--color-rose-500);
+    color: var(--color-rose-500);
+    height: .9rem;
+    width: .9rem;
     border-radius: 1rem;
     padding: 2px;
     cursor: pointer;
     height: .9rem;
+}
+
+.cart-item-container 
+.close-button:hover{
+    border: 1px solid var(--color-rose-900);
+    color: var(--color-rose-900);
 }
 
 .right{

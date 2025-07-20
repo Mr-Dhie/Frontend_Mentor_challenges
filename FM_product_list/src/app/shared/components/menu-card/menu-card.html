@@ -1,20 +1,28 @@
-<div class="image-container">
-    <img class="image-container-img" [src] = "item().image.desktop"  [alt]= "item().name" />
+<div class="image-parent-container">
+    <div class="image-container" [class.active-border]="isInCart()">
+        <img class="image-container-img" [src]="item().image.desktop" [alt]="item().name" />
+    </div>
+    
     @if(isInCart()){
-        <div class="toggle-button">
-            <img (click) = "decreateItem(item().id)" src="./assets/images/icon-decrement-quantity.svg" alt="decrement icon">
-            <span>{{itemQuantity()}}</span>
-            <img (click) = "addItem(item().id)" src="./assets/images/icon-increment-quantity.svg" alt="increment icon">
-        </div>
+    <button class="toggle-button button-increaseDecrease">
+        <svg class="icon" (click)="decreaseItem(item().id)" xmlns="http://www.w3.org/2000/svg" width="10" height="2" fill="currentColor" viewBox="0 0 10 2">
+            <path d="M0 .375h10v1.25H0V.375Z" />
+        </svg>
+
+        <span>{{itemQuantity()}}</span>
+        
+        <svg class="icon" (click)="addItem(item().id)" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" viewBox="0 0 10 10">
+            <path d="M10 4.375H5.625V0h-1.25v4.375H0v1.25h4.375V10h1.25V5.625H10v-1.25Z" />
+        </svg>
+    </button>
     }@else{
-        <button (click) = "addItem(item().id)">
-            <img class="btn-with-icon" src="./assets/images/icon-add-to-cart.svg" alt="Add to cart icon" />
-            <span>Add to Cart</span>
-        </button>
+    <button class="toggle-button button-addtocart" (click)="addItem(item().id)">
+        <img class="btn-with-icon" src="./assets/images/icon-add-to-cart.svg" alt="Add to cart icon" />
+        <span>Add to Cart</span>
+    </button>
     }
 </div>
-
-<div>
+<div class="menu-data-container">
     <p class="menu-category">{{item().category}}</p>
     <p class="menu-name">{{item().name}}</p>
     <p class="menu-price">${{item().price}}</p>

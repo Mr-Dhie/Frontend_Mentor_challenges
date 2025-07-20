@@ -35,7 +35,7 @@ export class MenuCard {
     this.dessertRepository.addToCart(id);
   }
 
-  decreateItem(id:string){
+  decreaseItem(id:string){
     this.dessertRepository.decreaseCartItem(id)
   }
 

@@ -1,46 +1,99 @@
-.image-container {
-    width: clamp(220px, -20vw + 450px, 350px);
-    height: clamp(220px, -20vw + 450px, 350px);
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(50%) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(50%) scale(1);
+  }
+}
+
+.image-parent-container{
     position: relative;
-    margin-bottom: 2rem;
-    /* overflow: hidden; */
+    width: 100%;
+}
+
+.image-container {
+    height: clamp(10rem, 8.5714rem + 7.1429vw, 15rem);
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .image-container .image-container-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 10px;
-    transition: transform 0.8s ease , border 0.1s ease;
+    transition: transform 0.8s ease;
 }
 
+.image-container:hover,.active-border{
+    border: 2px solid var(--color-primary);
+}
 .image-container:hover .image-container-img {
   transform: scale(1.05); 
-  border: 2px solid var(--color-primary);
 }
 
-.image-container button , .toggle-button{
+.toggle-button{
+    animation: popIn 200ms ease-out;
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%) translateY(50%);
     width: 8rem;
     height: 2rem;
-    border: 1px solid var(--color-rose-500);
     border-radius: 2rem;
-    background-color: var(--color-rose-100);
-    transition: all 0.3s ease;
+}
+
+.icon:active{
+  transform: scale(1.1);  
+}
+
+.toggle-button .icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--color-rose-50);
+    height: .9rem;
+    width: .9rem;
+    padding: 2px;
+    color: var(--color-rose-50);
+    border-radius: 1rem;
     cursor: pointer;
 }
 
-button{
+.toggle-button .icon:hover{
+    background-color: var(--color-rose-50);
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+.toggle-button span{
+    font-weight: var(--font-weight-medium);
+    font-size: 0.7rem;
+}
+
+.add-icon-button{
+    background-color: var(--color-primary);
+}
+
+.button-addtocart{
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+    border: 1px solid var(--color-rose-500);
+    background-color: var(--color-rose-100);
+    cursor: pointer;
+    transition: border 0.2s ease;
 }
 
-.toggle-button{
+.button-addtocart:hover{
+    border: 1px solid var(--color-primary);
+}
+
+.button-increaseDecrease{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -50,15 +103,8 @@ button{
     cursor: default;
 }
 
-.toggle-button span{
+.button-increaseDecrease span{
     color: var(--color-rose-50);
-    font-size: .8rem;
-}
-
-button span{
-    color: var(--color-rose-900);
-    font-weight: var(--font-weight-medium);
-    font-size: 0.7rem;
 }
 
 .btn-with-icon {
@@ -72,7 +118,7 @@ button span{
     object-fit: contain;
 }
 
-.toggle-button img{
+.button-increaseDecrease img{
     width: .8rem;
     height: .8rem;
     border: 1px solid var(--color-rose-50);
@@ -81,6 +127,10 @@ button span{
     cursor: pointer;
 }
 
+.menu-data-container{
+    margin-top: 2rem;
+    margin-bottom: clamp(0rem, -0.2857rem + 1.4286vw, 1rem);
+}
 
 .menu-type,
 .menu-name,
@@ -107,10 +157,8 @@ button span{
 }
 
 
-@media (max-width:950px) {
-    /* .image-container{
-        height: 350px;
-        width: 350px;
-    } */
-    
-}
+/* @media (min-width: 1000px){
+    .image-parent-container {
+        max-width:15rem;
+    }
+} */
